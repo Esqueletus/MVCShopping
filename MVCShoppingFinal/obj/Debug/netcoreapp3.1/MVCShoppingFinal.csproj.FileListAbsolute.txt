@@ -176,3 +176,8 @@ C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Deb
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Negocios\Details.cshtml.g.cs
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Negocios\Edit.cshtml.g.cs
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Negocios\Index.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Create.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Delete.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Details.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Edit.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Index.cshtml.g.cs

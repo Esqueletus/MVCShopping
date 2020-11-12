@@ -10,5 +10,6 @@ namespace MVCShoppingFinal.Context {
         public ShopDatabaseContext(DbContextOptions<ShopDatabaseContext> options) : base(options) {
         }
         public DbSet<Negocio> infoNegocio { get; set; }
+        public DbSet<MVCShopping.Models.Producto> Producto { get; set; }
     }
 }

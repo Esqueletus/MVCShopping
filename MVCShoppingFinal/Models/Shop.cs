@@ -27,7 +27,7 @@ namespace MVCShopping.Models {
             //
         }
 
-        public string buscarNegocio(string negocio) {
+        public string buscarNegocio(string numeroNegocio) {
 
             return null;
         }
