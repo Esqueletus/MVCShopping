@@ -13,18 +13,11 @@ namespace MVCShopping.Models {
         public int idNegocio { get; set; }
         public string Nombre { get; set; }
         public string Numero { get; set; }
-        public ICollection<Producto> productos; // luego ver link ef iCollection
+        public ICollection<Producto> Productos { get; set; }
 
         //ej https://www.entityframeworktutorial.net/code-first/foreignkey-dataannotations-attribute-in-code-first.aspx
         // https://www.entityframeworktutorial.net/efcore/pmc-commands-for-ef-core-migration.aspx
         // https://www.entityframeworktutorial.net/code-first/configure-many-to-many-relationship-in-code-first.aspx
-
-
-        /* public Negocio(String nomb, String num) {
-             Nombre = nomb;
-             Numero = num;
-             productos = new List<Producto>();
-         } */
 
         public bool agregarProducto() {
             //
@@ -59,19 +52,19 @@ namespace MVCShopping.Models {
 
         }*/
 
-        public List<Producto> ordenarPorPrecioMaxAMin() {
+        public ICollection<Producto> ordenarPorPrecioMaxAMin() {
             List<Producto> productosOrdMax = new List<Producto>();
             //
             return productosOrdMax;
         }
 
-        public List<Producto> ordenarPorPrecioMinAMax() {
+        public ICollection<Producto> ordenarPorPrecioMinAMax() {
             List<Producto> productosOrdMax = new List<Producto>();
             //
             return productosOrdMax;
         }
 
-        public List<Producto> ordenarPorPrecioMinYMax(float min, float max) {
+        public ICollection<Producto> ordenarPorPrecioMinYMax(float min, float max) {
             List<Producto> productosOrdMaxMin = new List<Producto>();
             //
             return productosOrdMaxMin;

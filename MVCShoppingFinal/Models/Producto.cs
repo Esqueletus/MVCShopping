@@ -13,7 +13,16 @@ namespace MVCShopping.Models {
         public String nombre { get; set; }
         public String descripcion { get; set; }
         public float precio { get; set; }
+        //ENUMS ---------------------
+        [EnumDataType(typeof(Talle))]
         public Talle talle { get; set; }
-        //agregar enum restantes
+        [EnumDataType(typeof(ColorProducto))]
+        public ColorProducto ColorProd { get; set; }
+        [EnumDataType(typeof(CategoriaProducto))]
+        public CategoriaProducto CategoriaProd { get; set; }
+
+        public int CurrentNegocioId { get; set; }
+        public Negocio Negocio { get; set; }
+
     }
 }
