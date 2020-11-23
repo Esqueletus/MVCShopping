@@ -22,6 +22,7 @@ namespace MVCShoppingFinal.Controllers
         // GET: Productoes
         public async Task<IActionResult> Index()
         {
+            ViewBag.colores = new SelectList(Enum.GetValues(typeof(ColorProducto)), ColorProducto.AMARILLO);
             return View(await _context.Producto.ToListAsync());
         }
 
@@ -46,6 +47,9 @@ namespace MVCShoppingFinal.Controllers
         // GET: Productoes/Create
         public IActionResult Create()
         {
+            var negocios = from negocio in _context.infoNegocio select negocio.idNegocio;
+            ViewBag.neg = new SelectList(negocios);
+
             return View();
         }
 

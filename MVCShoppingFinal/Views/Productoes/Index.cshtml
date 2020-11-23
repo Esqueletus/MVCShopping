@@ -10,6 +10,9 @@
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
+
+    @Html.DropDownList("ColorProducto", (ViewBag.colores as SelectList))
+
     <thead>
         <tr>
             <th>
@@ -37,35 +40,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.talle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ColorProd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoriaProd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentNegocioId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.idProducto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.idProducto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.idProducto">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.talle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ColorProd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaProd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentNegocioId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.idProducto">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.idProducto">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.idProducto">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

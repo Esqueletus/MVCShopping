@@ -119,6 +119,8 @@ namespace MVCShoppingFinal.Controllers
             return View(negocio);
         }
 
+
+
         // GET: Negocios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
