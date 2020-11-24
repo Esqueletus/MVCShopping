@@ -10,7 +10,9 @@ namespace MVCShopping.Models {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idProducto { get; set; }
+        [Required]
         public String nombre { get; set; }
+        [Required]
         public String descripcion { get; set; }
         public float precio { get; set; }
         //ENUMS ---------------------

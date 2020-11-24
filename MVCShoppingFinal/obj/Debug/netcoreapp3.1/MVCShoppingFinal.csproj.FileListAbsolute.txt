@@ -181,3 +181,5 @@ C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Deb
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Details.cshtml.g.cs
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Edit.cshtml.g.cs
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Index.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Home\FiltradoXColor.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Home\SeleccionoColor.cshtml.g.cs

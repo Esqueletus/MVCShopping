@@ -22,7 +22,6 @@ namespace MVCShoppingFinal.Controllers
         // GET: Productoes
         public async Task<IActionResult> Index()
         {
-            ViewBag.colores = new SelectList(Enum.GetValues(typeof(ColorProducto)), ColorProducto.AMARILLO);
             return View(await _context.Producto.ToListAsync());
         }
 
@@ -49,7 +48,6 @@ namespace MVCShoppingFinal.Controllers
         {
             var negocios = from negocio in _context.infoNegocio select negocio.idNegocio;
             ViewBag.neg = new SelectList(negocios);
-
             return View();
         }
 
@@ -76,6 +74,8 @@ namespace MVCShoppingFinal.Controllers
             {
                 return NotFound();
             }
+            var negocios = from negocio in _context.infoNegocio select negocio.idNegocio;
+            ViewBag.neg = new SelectList(negocios);
 
             var producto = await _context.Producto.FindAsync(id);
             if (producto == null)
