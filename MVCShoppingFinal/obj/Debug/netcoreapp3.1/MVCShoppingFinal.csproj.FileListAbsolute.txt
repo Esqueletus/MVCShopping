@@ -374,3 +374,4 @@ C:\Users\solan\Desktop\b\MVCShopping-master\MVCShoppingFinal\obj\Debug\netcoreap
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\FrontEnd\Index.cshtml.g.cs
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\FrontEnd\mostrarProductos.cshtml.g.cs
 C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Productoes\Create2.cshtml.g.cs
+C:\Users\Francisco Torres\source\repos\MVCShoppingFinal\MVCShoppingFinal\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs

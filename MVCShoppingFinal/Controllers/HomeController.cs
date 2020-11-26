@@ -28,15 +28,18 @@ namespace MVCShoppingFinal.Controllers {
         }
 
         [HttpPost]
-        public IActionResult SeleccionoColor(ColorProducto color) {
-            int idColor = ValidarId(color);
+        public IActionResult SeleccionoColor(ColorProducto ColorProd) {
+            int idColor = ValidarId(ColorProd);
             List<Producto> prodsXColor = _context.Producto
                 .FromSqlRaw("SELECT * FROM Producto WHERE ColorProd = {0}", idColor)
                 .ToList();
             return FiltradoXColor(prodsXColor);
         }
         public IActionResult FiltradoXColor(List<Producto> prodsXColorr) {
-
+            if(prodsXColorr.Count <= 0) {
+                ViewBag.error = "NO HAY PRODUCTOS CON EL COLOR ELEGIDO";
+                return View("Error");
+            }
             ViewBag.prods = prodsXColorr;
             return View("FiltradoXColor");
 
