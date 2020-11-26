@@ -56,9 +56,6 @@ namespace MVCShoppingFinal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("idNegocio,Nombre,Numero")] Negocio negocio)
         {
-            string numNegocio = negocio.Numero.ToString();
-            Shop shopping = new Shop();
-            shopping.buscarNegocio(numNegocio);
             if (ModelState.IsValid)
             {
                 _context.Add(negocio);
@@ -154,5 +151,25 @@ namespace MVCShoppingFinal.Controllers
         {
             return _context.infoNegocio.Any(e => e.idNegocio == id);
         }
+
+
+        /*--------------------*/
+
+        public async Task<IActionResult> agregarProducto(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var negocio = await _context.infoNegocio.FindAsync(id);
+            if (negocio == null)
+            {
+                return NotFound();
+            }
+
+            return RedirectToAction("crearProdConIDNegocio", "Productoes", new { id = id });
+        }
+
     }
 }

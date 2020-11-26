@@ -1,8 +1,6 @@
 ﻿@model MVCShopping.Models.Producto
 
-@{
-    ViewData["Title"] = "Create";
-}
+@{ ViewData["Title"] = "Create2"; }
 
 <h1>Create</h1>
 <h4>Producto</h4>
@@ -48,14 +46,13 @@
                 </select>
                 <span asp-validation-for="ColorProd" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="CurrentNegocioId" class="control-label"></label>
-                <!--@Html.DropDownList("Negocio", (ViewBag.neg as SelectList))-->
-                <select asp-for="CurrentNegocioId" class="form-control" asp-items="@ViewBag.neg">
-                    <option selected="selected" value="">Please select</option>
-                </select>
+                <input asp-for="CurrentNegocioId" class="form-control" id="CurrentNegocioId" name="CurrentNegocioId" value="@(ViewBag.neg)" }>
                 <span asp-validation-for="CurrentNegocioId" class="text-danger"></span>
             </div>
+
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

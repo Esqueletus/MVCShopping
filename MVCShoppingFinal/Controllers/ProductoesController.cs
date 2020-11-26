@@ -42,31 +42,6 @@ namespace MVCShoppingFinal.Controllers
 
             return View(producto);
         }
-
-        // GET: Productoes/Create
-        public IActionResult Create()
-        {
-            var negocios = from negocio in _context.infoNegocio select negocio.idNegocio;
-            ViewBag.neg = new SelectList(negocios);
-            return View();
-        }
-
-        // POST: Productoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("idProducto,nombre,descripcion,precio,talle,ColorProd,CategoriaProd,CurrentNegocioId")] Producto producto)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(producto);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(producto);
-        }
-
         // GET: Productoes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -153,5 +128,44 @@ namespace MVCShoppingFinal.Controllers
         {
             return _context.Producto.Any(e => e.idProducto == id);
         }
+
+        /*-------------*/
+
+        // GET: Productoes/Create
+        public IActionResult Create(int idNegocio)
+        {
+            var negocios = from negocio in _context.infoNegocio select negocio.idNegocio;
+            ViewBag.neg = new SelectList(negocios);
+            return View();
+        }
+
+        public IActionResult crearProdConIDNegocio(int id)
+        {
+            if(id == 0)
+            {
+                return NotFound();
+            }
+       
+            ViewBag.neg = id;
+
+            return View("Create2");
+        }
+
+        // POST: Productoes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("idProducto,nombre,descripcion,precio,talle,ColorProd,CategoriaProd,CurrentNegocioId")] Producto producto)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(producto);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(producto);
+        }
+
     }
 }

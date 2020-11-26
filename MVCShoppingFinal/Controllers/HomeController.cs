@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using MVCShopping.Models;
 using MVCShoppingFinal.Context;
 
@@ -20,41 +21,57 @@ namespace MVCShoppingFinal.Controllers {
             return View();
         }
 
-        public ActionResult SeleccionoColor() {
-            ViewBag.colors = new SelectList(Enum.GetNames(typeof(ColorProducto)), ColorProducto.AMARILLO);
+        public IActionResult SeleccionoColor() {
+            ViewBag.colores = Enum.GetValues(typeof(ColorProducto)).Cast<ColorProducto>();
+
             return View();
         }
 
-        [HttpGet]
-        public ActionResult SeleccionoColor(ColorProducto color) {
-            ViewBag.colors = new SelectList(Enum.GetNames(typeof(ColorProducto)), ColorProducto.AMARILLO);
-            ColorProducto colores = color;
-            int code = (int)colores;
-            // FiltradoXColor(code);
-            return View();
-        }
-
-        //listar por colores
-        public IActionResult FiltradoXColor() {
-            /*int code = 4;
-            var filtro = _context.Producto
-                .Where(x => x.ColorProd == (ColorProducto)code)
+        [HttpPost]
+        public IActionResult SeleccionoColor(ColorProducto color) {
+            int idColor = ValidarId(color);
+            List<Producto> prodsXColor = _context.Producto
+                .FromSqlRaw("SELECT * FROM Producto WHERE ColorProd = {0}", idColor)
                 .ToList();
+            return FiltradoXColor(prodsXColor);
+        }
+        public IActionResult FiltradoXColor(List<Producto> prodsXColorr) {
 
-            ViewBag.filtro = filtro;*/
-            return View();
+            ViewBag.prods = prodsXColorr;
+            return View("FiltradoXColor");
+
         }
 
-        [HttpGet]
-        public IActionResult FiltradoXColor(ColorProducto color) {
-            ViewBag.colors = new SelectList(Enum.GetNames(typeof(ColorProducto)), ColorProducto.AMARILLO);
-            int code = (int)Enum.Parse(color.GetType(), color.ToString());
-            var filtro = _context.Producto
-                    .Where(x => x.ColorProd == color)
-                    .ToList();
-            ViewBag.filtro = filtro;
-            return View(filtro);
-
+        private int ValidarId(ColorProducto color) {
+            if(color == ColorProducto.ROJO) {
+                return 0;
+            }
+            if (color == ColorProducto.ROSA)
+            {
+                return 1;
+            }
+            if (color == ColorProducto.VERDE)
+            {
+                return 2;
+            }
+            if (color == ColorProducto.AMARILLO)
+            {
+                return 3;
+            }
+            if (color == ColorProducto.NEGRO)
+            {
+                return 4;
+            }
+            if (color == ColorProducto.BLANCO)
+            {
+                return 5;
+            }
+            if (color == ColorProducto.GRIS)
+            {
+                return 6;
+            } else {
+                return -1;
+            }
         }
     }
 }

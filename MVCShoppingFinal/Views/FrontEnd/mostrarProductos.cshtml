@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MVCShopping.Models.Producto>
+
+@{ ViewData["Title"] = "Index"; }
+
+<center class="texto">
+    <h1>Productos</h1>
+</center>
+
+<div>
+
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="container">
+                Nombre:
+                @Html.DisplayFor(modelItem => item.nombre)<br />
+                Descripcion:
+                @Html.DisplayFor(modelItem => item.descripcion)<br />
+                Precio: $
+                @Html.DisplayFor(modelItem => item.precio)
+            </div>
+        </div>
+     }
+
+</div>
+
+
+
+
+
+<style>
+
+    body {
+     background: rgb(0, 0, 0);
+    }
+
+   .texto{
+       color:white;
+   }
+
+    .card {
+        background: rgb(255, 255, 255);
+        padding-left: 5px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        transition: 0.3s;
+        width: 25%;
+        float: left;
+        color: black;
+        font-family: Arial;
+    }
+
+    .card:hover {
+        box-shadow: 0 10px 20px 0 rgb(128, 128, 128);
+    }
+
+    .container {
+        display: inline-block;
+        width: card;
+        margin: card;
+        padding-left: 5px;
+        color: black;
+        font-family: Arial;
+    }
+</style>

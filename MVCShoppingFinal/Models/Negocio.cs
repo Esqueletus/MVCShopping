@@ -10,8 +10,11 @@ namespace MVCShopping.Models {
     public class Negocio {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Display(Name = "ID")]
         public int idNegocio { get; set; }
+        [Required(ErrorMessage = "Se necesita un nombre.")]
         public string Nombre { get; set; }
+        [Required(ErrorMessage = "Se necesita un numero.")]
         public string Numero { get; set; }
         public ICollection<Producto> Productos { get; set; }
 

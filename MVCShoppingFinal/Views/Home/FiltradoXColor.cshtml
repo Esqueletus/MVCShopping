@@ -1,24 +1,10 @@
-﻿@model IEnumerable<MVCShopping.Models.Producto>
+﻿@model IEnumerable<MVCShopping.Models.Producto> 
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>asd</h1>
-@using (Html.BeginForm("FiltradoXColor", "Home", FormMethod.Get)) {
-    <div class="row-fluid span12">
-        <div class="span3">
-            <p><strong>Colores :</strong></p>
-        </div>
-        <div class="span5">
-            @Html.DropDownList("ColorProducto", (ViewBag.colors as SelectList))
-        </div>
-    </div>
-    <div class="row-fluid span12">
-        <button class="btn btn-inverse" type="submit" title="Buscar por Color"><span class="fa fa-search"> Buscar</span></button>
-    </div>
-}
-
 <table>
     <thead>
         <tr>
@@ -50,31 +36,31 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model) {
+        @foreach (var item in ViewBag.prods) {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.idProducto)
+                    (@item.idProducto)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.nombre)
+                    @item.nombre
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.descripcion)
+                    @item.descripcion
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.precio)
+                    @item.precio
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.talle)
+                    @item.talle
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ColorProd)
+                    @item.ColorProd
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CategoriaProd)
+                    @item.CategoriaProd
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CurrentNegocioId)
+                    @item.CurrentNegocioId
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.idProducto">Edit</a> |
