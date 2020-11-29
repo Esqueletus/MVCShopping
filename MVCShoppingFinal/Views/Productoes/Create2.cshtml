@@ -49,7 +49,7 @@
 
             <div class="form-group">
                 <label asp-for="CurrentNegocioId" class="control-label"></label>
-                <input asp-for="CurrentNegocioId" class="form-control" id="CurrentNegocioId" name="CurrentNegocioId" value="@(ViewBag.neg)" }>
+                <input asp-for="CurrentNegocioId" class="form-control" id="CurrentNegocioId" readonly="readonly" name="CurrentNegocioId" value="@(ViewBag.neg)" }>
                 <span asp-validation-for="CurrentNegocioId" class="text-danger"></span>
             </div>
 
