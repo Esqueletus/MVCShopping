@@ -134,8 +134,11 @@ namespace MVCShoppingFinal.Controllers
         // GET: Productoes/Create
         public IActionResult Create(int idNegocio)
         {
-            var negocios = from negocio in _context.infoNegocio select negocio.idNegocio;
-            ViewBag.neg = new SelectList(negocios);
+            var cq = from d in _context.infoNegocio
+                     orderby d.Nombre
+                     select new { Id = d.idNegocio, Value = d.Nombre };
+
+            ViewBag.neg = new SelectList(cq.Distinct(), "Id", "Value"); //El distinct evita que se repitan valores.
             return View();
         }
 
@@ -158,6 +161,7 @@ namespace MVCShoppingFinal.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("idProducto,nombre,descripcion,precio,talle,ColorProd,CategoriaProd,CurrentNegocioId")] Producto producto)
         {
+            //USAR BUSCARID(VALOR)
             if (ModelState.IsValid)
             {
                 _context.Add(producto);
@@ -167,5 +171,13 @@ namespace MVCShoppingFinal.Controllers
             return View(producto);
         }
 
+        //VER QUE FUNCIONE
+        private int BuscarId(string nombreNegocio) {
+            string id = _context.Producto
+                .FromSqlRaw("SELECT idNegocio FROM infoNegocio WHERE Nombre = {asd}", nombreNegocio)
+                .ToString();
+            int idRetorno = Convert.ToInt32(id);
+            return idRetorno;
+        }
     }
 }

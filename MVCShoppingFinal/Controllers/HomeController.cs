@@ -42,7 +42,6 @@ namespace MVCShoppingFinal.Controllers {
             }
             ViewBag.prods = prodsXColorr;
             return View("FiltradoXColor");
-
         }
 
         private int ValidarId(ColorProducto color) {
